@@ -1,12 +1,12 @@
 name: Checkout repository and verify Java installation on GitHub actions runner 
 
-on: [push, workflow_dispatch] # eventy, na które reaguje workflow
+on: [push, workflow_dispatch] 
 
 jobs:
-  checkout_and_verify_java: # nazwa joba
-    name: Test workflow # nazwa akcji
+  checkout_and_verify_java: 
+    name: Test workflow
     runs-on: ubuntu-latest
-    steps: # definicje kroków
+    steps: 
       - name: Checkout the latest Git commit
         uses: actions/checkout@v2
         with:
@@ -18,5 +18,5 @@ jobs:
           distribution: 'adopt'
       - name: Verify Java installation
         run: java -version
-      -name: Run application
+      - name: Run application
         run: ./gradlew clean test
